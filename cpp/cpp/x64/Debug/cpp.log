@@ -1,0 +1,2 @@
+﻿  cpp.cpp
+LINK : fatal error LNK1168: cannot open D:\Visual studio\cpp\x64\Debug\cpp.exe for writing
