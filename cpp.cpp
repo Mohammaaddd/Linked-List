@@ -1,60 +1,61 @@
 
 #include <iostream>
+#include "LinkedList.h"
 
-struct Node {
-    int data;
-    Node* next;
-};
-
-void InsertAtBeginning(Node** head, int value) {
-    Node* newNode = new Node();
-
-    newNode->data = value;
-    newNode->next = *head;
-
-    *head = newNode;
-
-}
-
-void InsertAtEnd(Node** head, int value)
-{
-    Node* newNode = new Node();
-
-    newNode->data = value;
-    newNode->next = nullptr;
-
-    if (*head == nullptr)
-    {
-        *head = newNode;
-        return;
-    }
-
-    Node* last = *head;
-
-    while (last->next != nullptr)
-    {
-        last = last->next;
-    }
-
-    last->next = newNode;
-}
-
-void Insert(Node* previous, int value) {
-    if (previous == nullptr)
-    {
-        std::cout << "cant not be null";
-    }
-
-    Node* newNode = new Node();
-    newNode->data = value;
-
-    newNode->next = previous->next;
-    previous->next = newNode;
-}
+//struct Node {
+//    int data;
+//    Node* next;
+//};
+//
+//void InsertAtBeginning(Node** head, int value) {
+//    Node* newNode = new Node();
+//
+//    newNode->data = value;
+//    newNode->next = *head;
+//
+//    *head = newNode;
+//
+//}
+//
+//void InsertAtEnd(Node** head, int value)
+//{
+//    Node* newNode = new Node();
+//
+//    newNode->data = value;
+//    newNode->next = nullptr;
+//
+//    if (*head == nullptr)
+//    {
+//        *head = newNode;
+//        return;
+//    }
+//
+//    Node* last = *head;
+//
+//    while (last->next != nullptr)
+//    {
+//        last = last->next;
+//    }
+//
+//    last->next = newNode;
+//}
+//
+//void Insert(Node* previous, int value) {
+//    if (previous == nullptr)
+//    {
+//        std::cout << "cant not be null";
+//    }
+//
+//    Node* newNode = new Node();
+//    newNode->data = value;
+//
+//    newNode->next = previous->next;
+//    previous->next = newNode;
+//}
 
 int main()
 {
-    Node* head = new Node();
+   /* Node* head = new Node();
     Node* second = new Node();
     Node* third = new Node();
 
@@ -77,7 +78,21 @@ int main()
     {
         std::cout << cur->data << " ";
         cur = cur->next;
-    }
+    }*/
+
+    LinkedList list;
+
+    list.InsertAtBeginning(3);
+    list.InsertAtBeginning(2);
+    list.InsertAtBeginning(1);
+    list.InsertAtEnd(4);
+    list.InsertAfter(2, 99);
+
+    std::cout << "List: ";
+    list.Print();
+
+    list.DeleteByValue(99);
+    list.Print();
 }
 
 
